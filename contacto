@@ -1,0 +1,73 @@
+<form action="enviar.php" method="post">
+    <label>Nombre</label>
+    <input type="text" name="nombre" required>
+
+    <label>Correo electrónico</label>
+    <input type="email" name="email" required>
+
+    <label>Número de teléfono</label>
+    <input type="tel" name="telefono">
+
+    <label>Comentario</label>
+    <textarea name="comentario" required></textarea>
+
+    <button type="submit">Enviar</button>
+</form>
+
+<hr>
+
+<h3>Te puede interesar</h3>
+
+<ul>
+    <li><a href="#">Búsqueda</a></li>
+    <li><a href="#">Política de privacidad</a></li>
+    <li><a href="#">Política de devoluciones</a></li>
+    <li><a href="#">Términos de servicio</a></li>
+    <li><a href="#">Política de envíos</a></li>
+    <li><a href="#">Preguntas frecuentes</a></li>
+    <li><a href="#">Aviso legal</a></li>
+</ul>
+
+<h3>Sobre nosotros</h3>
+
+<p>
+    Somos distribuidores a nivel europeo de fragancias de la más alta calidad
+    para la fabricación de velas, wax melts, jabones, mikados, sprays y
+    cualquier otro producto perfumado.
+</p>
+
+<p>
+    Además ofrecemos otros productos como bases para elaborar mikados y room sprays.
+</p>
+
+
+<?php
+$destinatario = "tucorreo@ejemplo.com";
+
+$nombre = $_POST['nombre'];
+$email = $_POST['email'];
+$telefono = $_POST['telefono'];
+$comentario = $_POST['comentario'];
+
+$asunto = "Nuevo formulario de contacto";
+
+$mensaje = "
+Nombre: $nombre
+
+Correo: $email
+
+Teléfono: $telefono
+
+Comentario:
+$comentario
+";
+
+$headers = "From: $email";
+
+if(mail($destinatario, $asunto, $mensaje, $headers)){
+    echo "Mensaje enviado correctamente.";
+} else {
+    echo "Error al enviar el mensaje.";
+}
+?>
+
