@@ -1,0 +1,59 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+}
+
+header{
+    background:#0a2540;
+    padding:20px 50px;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+}
+
+ul{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+a{
+    color:white;
+    text-decoration:none;
+}
+
+.hero{
+    height:90vh;
+    background:url('../img/banner-gaming.jpg');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+}
+
+.contenido{
+    margin-left:80px;
+    color:white;
+}
+
+.btn{
+    display:inline-block;
+    background:#0066ff;
+    padding:15px 25px;
+    border-radius:10px;
+    margin-top:20px;
+}
