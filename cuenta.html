@@ -17,10 +17,10 @@
 <body>
     <header>
     <nav>
+        <img src="img/logo.png" alt="TRADE DIGITAL" class="logo" height="80px">
         <div class="logo">TRADE DIGITAL</div>
 
         <ul>
-            <li><a href="index.html">Inicio</a></li>
             <li><a href="servicios.html">Servicios</a></li>
             <li><a href="productos.html">Productos</a></li>
             <li><a href="contacto.php">Contacto</a></li>
@@ -29,6 +29,7 @@
         </ul>
     </nav>
 </header>
+
 <form id="formulario" class="container mt-5 mb-5">
 
     <div class="card p-4">
@@ -79,7 +80,7 @@
                 <label class="form-label">Código Postal *</label>
                 <input type="text" name="codigoPostal" class="form-control" required>
             </div>
-
+            
             <div class="col-md-4 mb-3">
                 <label class="form-label">Provincia *</label>
 
@@ -93,6 +94,32 @@
                 </select>
 
             </div>
+            <div class="col-12 mb-4">
+                        <label class="form-label">Subir IAE *</label>
+                        <input
+                            type="file"
+                            name="iae"
+                            class="form-control"
+                            accept=".pdf,.jpg,.jpeg,.png,.gif"
+                            required>
+
+                        <small class="text-muted">
+                            Formatos admitidos: pdf, jpg, png, gif
+                        </small>
+                    </div>
+
+                    <div class="col-12 mb-4">
+                        <label class="form-label">Subir Certificado revendedor</label>
+                        <input
+                            type="file"
+                            name="certificado_revendedor"
+                            class="form-control"
+                            accept=".pdf,.jpg,.jpeg,.png,.gif">
+
+                        <small class="text-muted">
+                            Formatos admitidos: pdf, jpg, png, gif
+                        </small>
+                    </div>
 
             <div class="col-12 mb-4">
 

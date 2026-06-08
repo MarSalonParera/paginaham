@@ -1,66 +1,87 @@
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $destinatario = "tucorreo@ejemplo.com";
-
-    $nombre = $_POST['nombre'];
-    $email = $_POST['email'];
-    $telefono = $_POST['telefono'];
-    $comentario = $_POST['comentario'];
-
-    $asunto = "Nuevo formulario de contacto";
-
-    $mensaje = "
-Nombre: $nombre
-
-Correo: $email
-
-Teléfono: $telefono
-
-Comentario:
-$comentario
-";
-
-    $headers = "From: $email";
-
-    if(mail($destinatario, $asunto, $mensaje, $headers)){
-        $resultado = "Mensaje enviado correctamente.";
-    } else {
-        $resultado = "Error al enviar el mensaje.";
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Contacto</title>
+    <title>Contacto - Trade Digital</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+<header>
+    <nav>
+        <img src="img/logo.png" alt="TRADE DIGITAL" class="logo" height="80px">
+        <div class="logo">TRADE DIGITAL</div>
 
-<h1>Formulario de contacto</h1>
+        <ul>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="contacto.php">Contacto</a></li>
+            <li><a href="cuenta.html">Solicitud de alta</a></li>
+             <li><a href="inicarsesion.html">Iniciar sesión</a></li>
+        </ul>
+    </nav>
+</header>
 
-<?php
-if(isset($resultado)){
-    echo "<p>$resultado</p>";
-}
-?>
+<div class="container py-5">
 
-<form method="POST" action="">
-    <label>Nombre</label>
-    <input type="text" name="nombre" required>
+    <div class="card contacto-card">
 
-    <label>Correo electrónico</label>
-    <input type="email" name="email" required>
+        <div class="card-body p-5">
 
-    <label>Teléfono</label>
-    <input type="tel" name="telefono">
+            <h1 class="titulo-contacto text-center mb-4">
+                Contacta con Trade Digital
+            </h1>
 
-    <label>Comentario</label>
-    <textarea name="comentario" required></textarea>
+            <?php
+            if(isset($resultado)){
+                echo "<div class='alert alert-info'>$resultado</div>";
+            }
+            ?>
 
-    <button type="submit">Enviar</button>
-</form>
+            <form method="POST">
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" name="nombre" class="form-control" required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Correo electrónico</label>
+                        <input type="email" name="email" class="form-control" required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Teléfono</label>
+                        <input type="tel" name="telefono" class="form-control">
+                    </div>
+
+                    <div class="col-12 mb-3">
+                        <label class="form-label">Comentario</label>
+                        <textarea
+                            name="comentario"
+                            rows="5"
+                            class="form-control"
+                            required></textarea>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-trade">
+                            Enviar mensaje
+                        </button>
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
 
 </body>
 </html>
