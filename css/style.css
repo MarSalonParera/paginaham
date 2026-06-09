@@ -18,6 +18,43 @@ nav{
     display:flex;
     justify-content:space-between;
     align-items:center;
+    background:#03284b;
+    padding:15px 40px;
+}
+
+.logo-container{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.menu{
+    display:flex;
+    list-style:none;
+    gap:35px;
+    margin-left:600px; 
+}
+
+.logo-img{
+    width:80px;
+    height:auto;
+}
+
+.logo-text{
+    color:white;
+    font-size:2.5rem;
+    font-weight:bold;
+    margin:0;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    font-size:1.1rem;
+}
+
+.menu a:hover{
+    color:#4da6ff;
 }
 
 .logo{
@@ -37,18 +74,72 @@ a{
     text-decoration:none;
 }
 
-.hero{
-    height:90vh;
-    background:url('../img/banner-gaming.jpg');
-    background-size:cover;
-    background-position:center;
-    display:flex;
-    align-items:center;
+.banner{
+    position:relative;
+    width:100%;
+    height:450px;
+    overflow:hidden;
+}
+
+.banner img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.banner-texto{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    text-align:center;
+    color:white;
+    background:rgba(0,0,0,0.4);
+    padding:20px 40px;
+    border-radius:10px;
+}
+
+.banner-texto h1{
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.banner-texto p{
+    margin-top:15px;
+    margin-bottom:25px;
+    font-size:1.3rem;
 }
 
 .contenido{
     margin-left:80px;
     color:white;
+}
+
+.btn-banner{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    background:#0d6efd;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+    transition:0.3s;
+}
+.btn-banner{
+    display:inline-block;
+    margin-top:35px;
+    padding:12px 25px;
+    background:#0d6efd;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.btn-banner:hover{
+    background:#0b5ed7;
+    transform:scale(1.05);
 }
 
 .btn{
@@ -241,6 +332,7 @@ img.inline, .inline-img {
     background:white;
     padding:20px;
 }
+
 
 @media (max-width: 1100px) {
     .catalogo-grid { grid-template-columns: 1fr; grid-template-areas: none; }

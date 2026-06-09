@@ -8,21 +8,23 @@
 <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-<header>
+ <header>
     <nav>
-        <img src="img/logo.png" alt="TRADE DIGITAL" class="logo" height="80px">
-        <div class="logo">TRADE DIGITAL</div>
 
-        <ul>
+    <div class="logo-container">
+        <img src="img/logo.png" alt="Trade Digital" class="logo-img">
+        <h1 class="logo-text">TRADE DIGITAL</h1>
+    </div>
+    <ul class="menu">
+           <li><a href="index.html">Inicio</a></li>
             <li><a href="servicios.html">Servicios</a></li>
-            <li><a href="productos.html">Productos</a></li>
-            <li><a href="contacto.php">Contacto</a></li>
             <li><a href="cuenta.html">Solicitud de alta</a></li>
              <li><a href="inicarsesion.html">Iniciar sesión</a></li>
-        </ul>
-    </nav>
-</header>
+    </ul>
 
+
+</nav>
+</header>
 <div class="container py-5">
 
     <div class="card contacto-card">
