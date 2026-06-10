@@ -18,7 +18,7 @@
     <ul class="menu">
            <li><a href="index.html">Inicio</a></li>
             <li><a href="servicios.html">Servicios</a></li>
-            <li><a href="cuenta.html">Solicitud de alta</a></li>
+            <li><a href="cuenta.php">Solicitud de alta</a></li>
     </ul>
 
 
