@@ -1,39 +1,99 @@
+<?php
+
+$mensajeExito = "";
+
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+
+    $nombre = $_POST["nombre"];
+    $apellidos = $_POST["apellidos"];
+    $empresa = $_POST["empresa"];
+    $cif = $_POST["cif"];
+    $telefono = $_POST["telefono"];
+    $email = $_POST["email"];
+    $direccion = $_POST["direccion"];
+    $ciudad = $_POST["ciudad"];
+    $codigoPostal = $_POST["codigoPostal"];
+    $provincia = $_POST["provincia"];
+
+    $carpeta = "documentos/";
+
+    if(!is_dir($carpeta)){
+        mkdir($carpeta, 0777, true);
+    }
+
+    $archivoIAE = "";
+    $archivoCertificado = "";
+
+    if(isset($_FILES["iae"]) && $_FILES["iae"]["error"] == 0){
+
+        $archivoIAE = time() . "_" . basename($_FILES["iae"]["name"]);
+
+        move_uploaded_file(
+            $_FILES["iae"]["tmp_name"],
+            $carpeta . $archivoIAE
+        );
+    }
+
+    if(isset($_FILES["certificado_revendedor"]) &&
+       $_FILES["certificado_revendedor"]["error"] == 0){
+
+        $archivoCertificado = time() . "_" . basename($_FILES["certificado_revendedor"]["name"]);
+
+        move_uploaded_file(
+            $_FILES["certificado_revendedor"]["tmp_name"],
+            $carpeta . $archivoCertificado
+        );
+    }
+
+    $mensajeExito = "Solicitud enviada correctamente.";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Solicitud de alta</title>
 
-    <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet">
-
-    <link
-    rel="stylesheet"
-    href="./css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
-   <header>
+
+<header>
     <nav>
 
-    <div class="logo-container">
-        <img src="img/logo.png" alt="Trade Digital" class="logo-img">
-        <h1 class="logo-text">TRADE DIGITAL</h1>
-    </div>
+        <div class="logo-container">
+            <img src="img/logo.png" alt="Trade Digital" class="logo-img">
+            <h1 class="logo-text">TRADE DIGITAL</h1>
+        </div>
 
-    <ul class="menu">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="servicios.html">Servicios</a></li>
-        <li><a href="contacto.php">Contacto</a></li>
-        <li><a href="inicarsesion.html">Iniciar sesión</a></li>
-    </ul>
+        <ul class="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="contacto.php">Contacto</a></li>
+        </ul>
 
-</nav>
+    </nav>
 </header>
 
-<form id="formulario" class="container mt-5 mb-5">
+<?php if(!empty($mensajeExito)): ?>
+
+<div class="container mt-4">
+    <div class="alert alert-success">
+        <?php echo $mensajeExito; ?>
+    </div>
+</div>
+
+<?php endif; ?>
+
+<form
+    id="formulario"
+    class="container mt-5 mb-5"
+    method="POST"
+    enctype="multipart/form-data">
 
     <div class="card p-4">
 
@@ -83,7 +143,7 @@
                 <label class="form-label">Código Postal *</label>
                 <input type="text" name="codigoPostal" class="form-control" required>
             </div>
-            
+
             <div class="col-md-4 mb-3">
                 <label class="form-label">Provincia *</label>
 
@@ -97,32 +157,35 @@
                 </select>
 
             </div>
+
             <div class="col-12 mb-4">
-                        <label class="form-label">Subir IAE *</label>
-                        <input
-                            type="file"
-                            name="iae"
-                            class="form-control"
-                            accept=".pdf,.jpg,.jpeg,.png,.gif"
-                            required>
+                <label class="form-label">Subir IAE *</label>
 
-                        <small class="text-muted">
-                            Formatos admitidos: pdf, jpg, png, gif
-                        </small>
-                    </div>
+                <input
+                    type="file"
+                    name="iae"
+                    class="form-control"
+                    accept=".pdf,.jpg,.jpeg,.png,.gif"
+                    required>
 
-                    <div class="col-12 mb-4">
-                        <label class="form-label">Subir Certificado revendedor</label>
-                        <input
-                            type="file"
-                            name="certificado_revendedor"
-                            class="form-control"
-                            accept=".pdf,.jpg,.jpeg,.png,.gif">
+                <small class="text-muted">
+                    Formatos admitidos: pdf, jpg, png, gif
+                </small>
+            </div>
 
-                        <small class="text-muted">
-                            Formatos admitidos: pdf, jpg, png, gif
-                        </small>
-                    </div>
+            <div class="col-12 mb-4">
+                <label class="form-label">Subir Certificado revendedor</label>
+
+                <input
+                    type="file"
+                    name="certificado_revendedor"
+                    class="form-control"
+                    accept=".pdf,.jpg,.jpeg,.png,.gif">
+
+                <small class="text-muted">
+                    Formatos admitidos: pdf, jpg, png, gif
+                </small>
+            </div>
 
             <div class="col-12 mb-4">
 
@@ -135,7 +198,6 @@
                         required>
 
                     <label class="form-check-label" for="condiciones">
-
                         He leído y acepto las condiciones generales y la política de privacidad
                     </label>
 
@@ -156,5 +218,6 @@
     </div>
 
 </form>
+
 </body>
 </html>

@@ -19,7 +19,6 @@
            <li><a href="index.html">Inicio</a></li>
             <li><a href="servicios.html">Servicios</a></li>
             <li><a href="cuenta.html">Solicitud de alta</a></li>
-             <li><a href="inicarsesion.html">Iniciar sesión</a></li>
     </ul>
 
 
@@ -35,49 +34,56 @@
                 Contacta con Trade Digital
             </h1>
 
-            <?php
-            if(isset($resultado)){
-                echo "<div class='alert alert-info'>$resultado</div>";
-            }
-            ?>
+<?php
 
-            <form method="POST">
+if($_SERVER["REQUEST_METHOD"]=="POST"){
 
-                <div class="row">
+    $nombre = $_POST["nombre"];
+    $email = $_POST["email"];
+    $telefono = $_POST["telefono"];
+    $comentario = $_POST["comentario"];
 
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Nombre</label>
-                        <input type="text" name="nombre" class="form-control" required>
-                    </div>
+   if(mail($destinatario,$asunto,$mensaje)){
+    echo "<div class='alert alert-success'>
+            Mensaje enviado correctamente.
+          </div>";
+}else{
+    echo "<div class='alert alert-danger'>
+            Error al enviar el mensaje.
+          </div>";
+}
+}
 
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Correo electrónico</label>
-                        <input type="email" name="email" class="form-control" required>
-                    </div>
+?>
+<form method="POST">
 
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Teléfono</label>
-                        <input type="tel" name="telefono" class="form-control">
-                    </div>
+    <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input type="text" name="nombre" class="form-control" required>
+    </div>
 
-                    <div class="col-12 mb-3">
-                        <label class="form-label">Comentario</label>
-                        <textarea
-                            name="comentario"
-                            rows="5"
-                            class="form-control"
-                            required></textarea>
-                    </div>
+    <div class="mb-3">
+        <label class="form-label">Correo electrónico</label>
+        <input type="email" name="email" class="form-control" required>
+    </div>
 
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary btn-trade">
-                            Enviar mensaje
-                        </button>
-                    </div>
+    <div class="mb-3">
+        <label class="form-label">Teléfono</label>
+        <input type="tel" name="telefono" class="form-control">
+    </div>
 
-                </div>
+    <div class="mb-3">
+        <label class="form-label">Comentario</label>
+        <textarea name="comentario" rows="5" class="form-control" required></textarea>
+    </div>
 
-            </form>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-trade">
+            Enviar mensaje
+        </button>
+    </div>
+
+</form>
 
         </div>
 
