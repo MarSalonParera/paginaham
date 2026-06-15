@@ -1,5 +1,7 @@
 <?php
 
+include("config.php");
+
 $mensajeExito = "";
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
@@ -45,7 +47,34 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         );
     }
 
-    $mensajeExito = "Solicitud enviada correctamente.";
+    $stmt = $conexion->prepare(
+"INSERT INTO solicitudes
+(nombre,apellidos,empresa,cif,telefono,email,direccion,ciudad,codigo_postal,provincia,iae,certificado)
+VALUES (?,?,?,?,?,?,?,?,?,?,?,?)"
+);
+
+$stmt->bind_param(
+"ssssssssssss",
+$nombre,
+$apellidos,
+$empresa,
+$cif,
+$telefono,
+$email,
+$direccion,
+$ciudad,
+$codigoPostal,
+$provincia,
+$archivoIAE,
+$archivoCertificado
+);
+    if($stmt->execute()){
+        $mensajeExito = "Solicitud enviada correctamente.";
+    }else{
+        $mensajeExito = "Error al guardar la solicitud.";
+    }
+
+    $stmt->close();
 }
 ?>
 

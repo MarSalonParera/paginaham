@@ -1,11 +1,10 @@
 <?php
 
 $conexion = new mysqli(
-    "sMysql",
-    "ham",
-    "ClotFje26@",
-    "tradedigital",
-    3306
+    "localhost",
+    "root",
+    "",
+    "tradedigital"
 );
 
 if ($conexion->connect_error) {
@@ -13,5 +12,4 @@ if ($conexion->connect_error) {
 }
 
 $conexion->set_charset("utf8");
-
 ?>

@@ -34,7 +34,12 @@
                 Contacta con Trade Digital
             </h1>
 
+
 <?php
+
+include("config.php");
+
+$mensaje = "";
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 
@@ -43,15 +48,34 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $telefono = $_POST["telefono"];
     $comentario = $_POST["comentario"];
 
-   if(mail($destinatario,$asunto,$mensaje)){
-    echo "<div class='alert alert-success'>
-            Mensaje enviado correctamente.
-          </div>";
-}else{
-    echo "<div class='alert alert-danger'>
-            Error al enviar el mensaje.
-          </div>";
-}
+    $stmt = $conexion->prepare(
+        "INSERT INTO contactos (nombre,email,telefono,comentario)
+         VALUES (?,?,?,?)"
+    );
+
+    if(!$stmt){
+        die("Error SQL: " . $conexion->error);
+    }
+
+    $stmt->bind_param(
+        "ssss",
+        $nombre,
+        $email,
+        $telefono,
+        $comentario
+    );
+
+    if($stmt->execute()){
+        $mensaje = "<div class='alert alert-success'>
+                        Mensaje enviado correctamente.
+                    </div>";
+    }else{
+        $mensaje = "<div class='alert alert-danger'>
+                        Error: ".$stmt->error."
+                    </div>";
+    }
+
+    $stmt->close();
 }
 
 ?>
