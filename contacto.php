@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Contacto - Trade Digital</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -93,7 +93,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
     <div class="mb-3">
         <label class="form-label">Teléfono</label>
-        <input type="tel" name="telefono" class="form-control">
+        <input type="tel" name="telefono" class="form-control" required>
     </div>
 
     <div class="mb-3">

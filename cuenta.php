@@ -183,6 +183,49 @@ $archivoCertificado
                     <option>Valencia</option>
                     <option>Sevilla</option>
                     <option>Zaragoza</option>
+                    <option>Ciudad real</option>
+                    <option>Caceres</option>
+                    <option>Badajoz</option>
+                     <option>Toledo</option>
+                    <option>Huesca</option>
+                    <option>Leyón</option>
+                    <option>Albacete</option>
+                    <option>Burgos</option>
+                    <option>Cordoba</option>
+                    <option>Chaén</option>
+                    <option>Granada</option>
+                    <option>Salamanca</option>
+                    <option>Guadalachara</option>
+                    <option>Leida</option>
+                    <option>Murcia</option>
+                    <option>Asturias</option>
+                    <option>Zamora</option>
+                    <option>Navarra</option>
+                    <option>Soria</option>
+                    <option>Uelba</option>
+                    <option>Lugo</option>
+                    <option>Almería</option>
+                    <option>Valladolid</option>
+                    <option>Palencia</option>
+                    <option>Ávila</option>
+                    <option>A Coruña</option>
+                    <option>Cádiz</option>
+                    <option>Malaga</option>
+                    <option>Ourense</option>
+                    <option>Segovia</option>
+                    <option>Castellón</option>
+                    <option>Tarragona</option>
+                    <option>Chirona</option>
+                    <option>Alicante</option>
+                    <option>Cantabria</option>
+                    <option>La Rioja</option>
+                    <option>Islas Balears</option>
+                    <option>Pontevedra</option>
+                    <option>Las Palmas</option>
+                    <option>Santa Cruz de Tenerife</option>
+                    <option>Alaba</option>
+                    <option>Bizcaya</option>
+                    <option>Guipuzcua</option>
                 </select>
 
             </div>
