@@ -101,7 +101,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         <textarea name="comentario" rows="5" class="form-control" required></textarea>
     </div>
 
-    <div class="text-center">
+    <div class="text-center">   
         <button type="submit" class="btn btn-primary btn-trade">
             Enviar mensaje
         </button>
